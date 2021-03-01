@@ -18,7 +18,7 @@
   <h3 align="center">HubLocker Skill Project</h3>
 
   <p align="center">
-    An awesome web application that allows user to search for location lockers using city or state
+    An awesome RESTful web application that allows user to search for location lockers using city or state
     <br />
     <br />
     <a href="https://github.com/goodnessemmanuel/hublocker">View Demo</a>
