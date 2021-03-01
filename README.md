@@ -30,7 +30,7 @@
 This application searches for a location locker given an input (i.e. state or city) from a user and show all the lockers at that location.
 
 ### Technologies used
- ##### Server Side
+ #### Server Side
  * Spring Boot 2+
  * Spring Data JPA (Hibernate)
  * Maven 3.2+ (Package Manager)
