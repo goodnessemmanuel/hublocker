@@ -27,7 +27,7 @@
 
 ## About the Project
 ![Project Name Screen Shot](images/project_screenshot.png) 
-This application searches for a location locker given an input (i.e. state or city) from a user and show all lockers at that location.
+This application searches for a location locker given an input (i.e. state or city) from a user and show all the lockers at that location.
 
 ### Technologies used
  ##### Server Side
