@@ -8,5 +8,6 @@ import java.util.List;
 
 @Repository
 public interface LockerRepo extends JpaRepository<Locker, Long> {
-    List<Locker> findByCity();
+    List<Locker> findByLockerCity(String name);
+    List<Locker> findByLockerState(String name);
 }
