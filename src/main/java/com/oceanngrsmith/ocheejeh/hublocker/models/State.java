@@ -25,6 +25,9 @@ public class State extends BaseModel{
     @OneToMany(mappedBy = "state", orphanRemoval = true)
     private Set<City> cities = new HashSet<>();
 
+    @OneToMany(mappedBy = "state", orphanRemoval = true)
+    private List<Locker> lockers = new ArrayList<>();
+
     public State(String name){
         this(name, "Not Set");
     }
@@ -38,5 +41,4 @@ public class State extends BaseModel{
         city.setState(this);
         cities.add(city);
     }
-
 }

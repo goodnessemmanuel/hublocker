@@ -1,15 +1,19 @@
 package com.oceanngrsmith.ocheejeh.hublocker.controllers;
 
-import com.oceanngrsmith.ocheejeh.hublocker.models.Locker;
+import com.oceanngrsmith.ocheejeh.hublocker.dto.LockerDTO;
 import com.oceanngrsmith.ocheejeh.hublocker.services.LockerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+/**
+ * controller handles
+ * all incoming api
+ * requests and returns
+ * corresponding payload
+ */
 @RestController
 @RequestMapping("/api/v1/")
 public class LockerController {
@@ -22,8 +26,18 @@ public class LockerController {
     }
 
     @GetMapping({"/", "lockers"})
-    public ResponseEntity<List<Locker>> getLocationLockers(){
-        return ResponseEntity.ok(lockerService.listAllLockers());
+    public ResponseEntity<List<LockerDTO>> getLocationLockers(){
+        return lockerService.listAllLockers();
+    }
+
+    @GetMapping("lockers/city")
+    public ResponseEntity<List<LockerDTO>> getLocationLockersByCity(@RequestParam String search){
+        return lockerService.listAllLockersByCity(search);
+    }
+
+    @GetMapping("lockers/state")
+    public ResponseEntity<List<LockerDTO>> getLocationLockersByState(@RequestParam String search){
+        return lockerService.listAllLockersByState(search);
     }
 
 }

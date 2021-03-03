@@ -8,6 +8,7 @@ import javax.persistence.*;
 @Getter
 @Setter
 @NoArgsConstructor
+@AllArgsConstructor
 @Entity
 public class Locker extends BaseModel{
 
@@ -17,8 +18,12 @@ public class Locker extends BaseModel{
     @ManyToOne
     private City city;
 
+    @ManyToOne
+    private State state;
+
     public Locker(String name, String priceDetail) {
         this.name = name;
         this.priceDetail = priceDetail;
     }
+
 }
