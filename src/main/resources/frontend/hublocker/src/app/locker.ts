@@ -4,5 +4,6 @@ export interface Locker {
   priceDetail: string;
   city: string;
   state: string;
-  createdAt: string;
+  totalLockersPerCity: number;
+  firstRent: string;
 }

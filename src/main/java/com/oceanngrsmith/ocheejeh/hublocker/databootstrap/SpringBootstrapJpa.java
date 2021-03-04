@@ -82,42 +82,44 @@ public class SpringBootstrapJpa implements ApplicationListener<ContextRefreshedE
         Locker lagosLocker1 = new Locker();
         lagosLocker1.setName("LG34 H295* K460*D520mm");
         lagosLocker1.setPriceDetail("₦150 per Item/mo ₦19,000 XX no of orders Online only price");
+        lagosLocker1.setFirstRent("₦3 For First Rent");
         lagosLocker1.setCity(lekki);
         lagosLocker1.setState(lekki.getState());
 
         Locker lagosLocker2 = new Locker("LG34 P2K5* K433*D520mm",
                 "₦320 per Item/mo ₦13,000 XX no of orders Online only price");
+        lagosLocker2.setFirstRent("₦3 For First Rent");
         lagosLocker2.setCity(ikeja);
         lagosLocker2.setState(ikeja.getState());
 
         Locker lagosLocker3 = new Locker("LG34 Q295* W460*D520mm",
-                "₦480 per Item/mo ₦24,000 XX no of orders Online only price", festac, lagos);
+                "₦480 per Item/mo ₦24,000 XX no of orders Online only price", "₦1 For First Rent", festac, lagos);
         Locker lagosLocker4 = new Locker("LG34 H295* W460*D520mm",
-                "₦280 per Item/mo ₦9,000 XX no of orders Online only price", ajah, lagos);
+                "₦280 per Item/mo ₦9,000 XX no of orders Online only price","₦2 For First Rent", ajah, lagos);
         Locker lagosLocker5 = new Locker("LG03 K295* W460*D520mm",
-                "₦350 per Item/mo ₦12,000 XX no of orders Online only price", ajah, lagos);
+                "₦350 per Item/mo ₦12,000 XX no of orders Online only price", "₦1 For First Rent", ajah, lagos);
         Locker lagosLocker6 = new Locker("LG44 K295* W460*P520mm",
-                "₦350 per Item/mo ₦12,000 XX no of orders Online only price", festac, lagos);
+                "₦350 per Item/mo ₦12,000 XX no of orders Online only price", "₦1 For First Rent", festac, lagos);
 
         lockerService.saveLockers(List.of(lagosLocker1, lagosLocker2, lagosLocker3, lagosLocker3, lagosLocker4, lagosLocker5, lagosLocker6));
 
         Locker riversLocker1 = new Locker("RV34 H295* W460*D520mm",
-                "₦280 per Item/mo ₦17,000 XX no of orders Online only price", ph, rivers);
+                "₦280 per Item/mo ₦17,000 XX no of orders Online only price", "₦1 For First Rent", ph, rivers);
         Locker riversLocker2 = new Locker("RV64 H295* W360*D920mm",
-                "₦580 per Item/mo ₦14,000 XX no of orders Online only price", ph, rivers);
+                "₦580 per Item/mo ₦14,000 XX no of orders Online only price","₦1 For First Rent", ph, rivers);
         Locker riversLocker3 = new Locker("RV19 Z295* W360*D920mm",
-                "₦300 per Item/mo ₦10,000 XX no of orders Online/Offline only price", obiAkpor, rivers);
+                "₦300 per Item/mo ₦10,000 XX no of orders Online/Offline only price", "₦1 For First Rent", obiAkpor, rivers);
 
         lockerService.saveLockers(List.of(riversLocker1, riversLocker2, riversLocker3));
 
         Locker abujaLocker1 = new Locker("AB34 H295* W460*D520mm",
-                "₦280 per Item/mo ₦17,000 XX no of orders Online only price", gwar, abuja);
+                "₦280 per Item/mo ₦17,000 XX no of orders Online only price", "₦1 For First Rent",  gwar, abuja);
         Locker abujaLocker2 = new Locker("AB64 H295* W360*D920mm",
-                "₦580 per Item/mo ₦14,000 XX no of orders Online only price", area1, abuja);
+                "₦580 per Item/mo ₦14,000 XX no of orders Online only price","₦1 For First Rent", area1, abuja);
         Locker abujaLocker3 = new Locker("AB19 Z295* W360*D920mm",
-                "₦300 per Item/mo ₦10,000 XX no of orders Online/Offline only price", area1, abuja);
+                "₦300 per Item/mo ₦10,000 XX no of orders Online/Offline only price", "₦1 For First Rent", area1, abuja);
         Locker abujaLocker4 = new Locker("AB11 ZP95* W360*D920mm",
-                "₦250 per Item/mo ₦15,000 XX no of orders Online/Offline only price", area1, abuja);
+                "₦250 per Item/mo ₦15,000 XX no of orders Online/Offline only price", "₦1 For First Rent", area1, abuja);
 
         lockerService.saveLockers(List.of(abujaLocker1, abujaLocker2, abujaLocker3, abujaLocker4));
 
