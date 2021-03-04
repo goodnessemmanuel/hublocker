@@ -37,6 +37,14 @@ This application searches for a location locker given an input (i.e. state or ci
  * JDK 11
  * MySQL Database
  * Embedded Tomcat
+ 
+ #### Client Side
+ * Angular 11
+ * Angular CLI
+ * Typescript
+ * NodeJS & NPM
+ * JDK 11
+ * Bootstrap 5
 
 ## Author
 * Oche Ejeh
