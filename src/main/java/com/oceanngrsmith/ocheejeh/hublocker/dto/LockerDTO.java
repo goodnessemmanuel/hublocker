@@ -13,9 +13,10 @@ import java.util.Date;
 @NoArgsConstructor
 public class LockerDTO {
     private Long id;
+    private Integer totalLockersPerCity;
     private String name;
     private String state;
     private String city;
     private String priceDetail;
-    private Date createdAt;
+    private String firstRent;
 }

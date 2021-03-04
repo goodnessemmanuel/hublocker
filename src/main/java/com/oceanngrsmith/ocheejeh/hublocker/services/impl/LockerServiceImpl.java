@@ -59,8 +59,9 @@ public class LockerServiceImpl implements LockerService {
     @Override
     public List<LockerDTO> convertLockersToDTO(List<Locker> lockers) {
         return lockers.stream()
-                .map(locker -> new LockerDTO(locker.getId(), locker.getName(), locker.getState().getName(),
-                        locker.getCity().getName(), locker.getPriceDetail(), locker.getDateCreated()))
+                .map(locker -> new LockerDTO(locker.getId(), locker.getCity().getLockers().size(),
+                        locker.getName(), locker.getState().getName(), locker.getCity().getName(),
+                        locker.getPriceDetail(), locker.getFirstRent()))
                 .collect(Collectors.toList());
     }
 

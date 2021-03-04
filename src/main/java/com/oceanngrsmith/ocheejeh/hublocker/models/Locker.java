@@ -14,6 +14,7 @@ public class Locker extends BaseModel{
 
     private String name;
     private String priceDetail;
+    private String firstRent;
 
     @ManyToOne
     private City city;
