@@ -30,14 +30,9 @@ public class LockerController {
         return lockerService.listAllLockers();
     }
 
-    @GetMapping("lockers/city")
-    public ResponseEntity<List<LockerDTO>> getLocationLockersByCity(@RequestParam String search){
-        return lockerService.listAllLockersByCity(search);
-    }
-
-    @GetMapping("lockers/state")
-    public ResponseEntity<List<LockerDTO>> getLocationLockersByState(@RequestParam String search){
-        return lockerService.listAllLockersByState(search);
+    @GetMapping("lockers/search")
+    public ResponseEntity<List<LockerDTO>> getLockersByStateOrCity(@RequestParam String key){
+        return lockerService.listLockersByStateOrCity(key);
     }
 
 }

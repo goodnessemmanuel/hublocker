@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -45,16 +46,12 @@ public class LockerServiceImpl implements LockerService {
     }
 
     @Override
-    public ResponseEntity<List<LockerDTO>> listAllLockersByCity(String nameOfCity) {
-        City targetCity = cityRepo.findByName(nameOfCity);
-        List<Locker> lockers = lockerRepo.findByCity(targetCity);
-        return  ResponseEntity.ok(convertLockersToDTO(lockers));
-    }
+    public ResponseEntity<List<LockerDTO>> listLockersByStateOrCity(String cityOrState) {
+        State state; City city;
+        List<Locker> lockers = new ArrayList<>();
 
-    @Override
-    public ResponseEntity<List<LockerDTO>> listAllLockersByState(String nameOfState) {
-        State targetState = stateRepo.findByName(nameOfState);
-        List<Locker> lockers = lockerRepo.findByState(targetState);
+        if((state = stateRepo.findByName(cityOrState)) != null) lockers = lockerRepo.findByState(state);
+        else if((city = cityRepo.findByName(cityOrState)) != null) lockers = lockerRepo.findByCity(city);
 
         return  ResponseEntity.ok(convertLockersToDTO(lockers));
     }
@@ -65,6 +62,11 @@ public class LockerServiceImpl implements LockerService {
                 .map(locker -> new LockerDTO(locker.getId(), locker.getName(), locker.getState().getName(),
                         locker.getCity().getName(), locker.getPriceDetail(), locker.getDateCreated()))
                 .collect(Collectors.toList());
+    }
+
+    @Override
+    public Long countLockersByCity(City city) {
+        return lockerRepo.countByCity(city);
     }
 
 }

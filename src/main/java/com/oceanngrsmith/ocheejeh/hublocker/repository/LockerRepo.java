@@ -12,4 +12,5 @@ import java.util.List;
 public interface LockerRepo extends JpaRepository<Locker, Long> {
     List<Locker> findByCity(City city);
     List<Locker> findByState(State state);
+    Long countByCity(City city);
 }
