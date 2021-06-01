@@ -8,8 +8,10 @@ import com.oceanngrsmith.ocheejeh.hublocker.models.State;
 import com.oceanngrsmith.ocheejeh.hublocker.services.CityService;
 import com.oceanngrsmith.ocheejeh.hublocker.services.LockerService;
 import com.oceanngrsmith.ocheejeh.hublocker.services.StateService;
-import org.codehaus.plexus.component.annotations.Component;
+import com.zaxxer.hikari.HikariConfig;
+import com.zaxxer.hikari.HikariDataSource;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -18,7 +20,7 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
 
-import javax.annotation.PostConstruct;
+import javax.sql.DataSource;
 import java.util.Arrays;
 import java.util.List;
 
@@ -26,9 +28,11 @@ import java.util.List;
  * load initial
  * database data
  */
-//@Component(role = SpringBootstrapJpa.class)
 @Configuration
 public class SpringBootstrapJpa implements ApplicationListener<ContextRefreshedEvent> {
+    @Value("${spring.datasource.url}")
+    private String dbUrl;
+
     private  StateService stateService;
     private  CityService cityService;
     private  LockerService lockerService;
@@ -148,4 +152,16 @@ public class SpringBootstrapJpa implements ApplicationListener<ContextRefreshedE
         return new CorsFilter(urlBasedCorsConfigurationSource);
     }
 
+
+    /**
+     * use this configuration ONLY if your app properties is set to
+     * postgres during deployment to heroku if not you can use the
+     * other database
+     */
+    @Bean
+    public DataSource dataSource() {
+        HikariConfig config = new HikariConfig();
+        config.setJdbcUrl(dbUrl);
+        return new HikariDataSource(config);
+    }
 }
