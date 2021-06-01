@@ -1,5 +1,6 @@
 package com.oceanngrsmith.ocheejeh.hublocker.databootstrap;
 
+import com.oceanngrsmith.ocheejeh.hublocker.configurations.AppConfig;
 import com.oceanngrsmith.ocheejeh.hublocker.dto.LockerDTO;
 import com.oceanngrsmith.ocheejeh.hublocker.models.City;
 import com.oceanngrsmith.ocheejeh.hublocker.models.Locker;
@@ -31,6 +32,12 @@ public class SpringBootstrapJpa implements ApplicationListener<ContextRefreshedE
     private  StateService stateService;
     private  CityService cityService;
     private  LockerService lockerService;
+    private  AppConfig appConfig;
+
+    @Autowired
+    public void setAppConfig(AppConfig appConfig) {
+        this.appConfig = appConfig;
+    }
 
     @Autowired
     public void setStateService(StateService stateService) {
@@ -129,7 +136,7 @@ public class SpringBootstrapJpa implements ApplicationListener<ContextRefreshedE
     public CorsFilter corsFilter() {
         CorsConfiguration corsConfiguration = new CorsConfiguration();
         corsConfiguration.setAllowCredentials(true);
-        corsConfiguration.setAllowedOrigins(Arrays.asList("http://localhost:4200"));
+        corsConfiguration.setAllowedOrigins(Arrays.asList(appConfig.getUrl()));
         corsConfiguration.setAllowedHeaders(Arrays.asList("Origin", "Access-Control-Allow-Origin", "Content-Type",
                 "Accept", "Authorization", "Origin, Accept", "X-Requested-With",
                 "Access-Control-Request-Method", "Access-Control-Request-Headers"));
