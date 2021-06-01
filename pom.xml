@@ -37,7 +37,7 @@
             <artifactId>mysql-connector-java</artifactId>
             <scope>runtime</scope>
         </dependency>
-        <!--        preferred for Heroku deployment-->
+        <!--  preferred for Heroku deployment-->
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
