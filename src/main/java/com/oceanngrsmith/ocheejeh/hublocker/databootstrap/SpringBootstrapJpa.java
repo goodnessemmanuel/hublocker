@@ -30,8 +30,7 @@ import java.util.List;
  * database data
  */
 @Configuration
-@DependsOn("DatabaseConfig")
-public class SpringBootstrapJpa implements ApplicationListener<ContextRefreshedEvent> {
+public class SpringBootstrapJpa {
 
     private  StateService stateService;
     private  CityService cityService;
@@ -57,10 +56,10 @@ public class SpringBootstrapJpa implements ApplicationListener<ContextRefreshedE
         this.lockerService = lockerService;
     }
 
-    @Override
+    /*@Override
     public void onApplicationEvent(ContextRefreshedEvent contextRefreshedEvent) {
         this.loadData();
-    }
+    }*/
 
     public void loadData() {
         List<LockerDTO> locationLockers = lockerService.listAllLockers().getBody();

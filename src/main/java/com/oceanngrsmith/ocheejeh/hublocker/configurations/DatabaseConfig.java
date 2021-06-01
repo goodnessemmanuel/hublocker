@@ -14,7 +14,7 @@ import javax.sql.DataSource;
  * other database
  */
 
-@Configuration("DatabaseConfig")
+@Configuration
 public class DatabaseConfig {
     @Value("${spring.datasource.url}")
     private String dbUrl;
