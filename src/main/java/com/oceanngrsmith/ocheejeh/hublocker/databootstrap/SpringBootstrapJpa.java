@@ -15,6 +15,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.DependsOn;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
@@ -29,9 +30,8 @@ import java.util.List;
  * database data
  */
 @Configuration
+@DependsOn("DatabaseConfig")
 public class SpringBootstrapJpa implements ApplicationListener<ContextRefreshedEvent> {
-    @Value("${spring.datasource.url}")
-    private String dbUrl;
 
     private  StateService stateService;
     private  CityService cityService;
@@ -152,16 +152,4 @@ public class SpringBootstrapJpa implements ApplicationListener<ContextRefreshedE
         return new CorsFilter(urlBasedCorsConfigurationSource);
     }
 
-
-    /**
-     * use this configuration ONLY if your app properties is set to
-     * postgres during deployment to heroku if not you can use the
-     * other database
-     */
-    @Bean
-    public DataSource dataSource() {
-        HikariConfig config = new HikariConfig();
-        config.setJdbcUrl(dbUrl);
-        return new HikariDataSource(config);
-    }
 }
