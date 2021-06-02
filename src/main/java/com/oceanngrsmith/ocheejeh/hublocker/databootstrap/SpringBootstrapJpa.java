@@ -8,10 +8,7 @@ import com.oceanngrsmith.ocheejeh.hublocker.models.State;
 import com.oceanngrsmith.ocheejeh.hublocker.services.CityService;
 import com.oceanngrsmith.ocheejeh.hublocker.services.LockerService;
 import com.oceanngrsmith.ocheejeh.hublocker.services.StateService;
-import com.zaxxer.hikari.HikariConfig;
-import com.zaxxer.hikari.HikariDataSource;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -20,7 +17,6 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
 
-import javax.sql.DataSource;
 import java.util.Arrays;
 import java.util.List;
 
