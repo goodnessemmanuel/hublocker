@@ -14,12 +14,12 @@ import javax.sql.DataSource;
  * other database
  */
 
-@Configuration
+//@Configuration
 public class DatabaseConfig {
     @Value("${spring.datasource.url}")
     private String dbUrl;
 
-    @Bean
+    //@Bean
     public DataSource dataSource() {
         HikariConfig config = new HikariConfig();
         config.setJdbcUrl(dbUrl);
