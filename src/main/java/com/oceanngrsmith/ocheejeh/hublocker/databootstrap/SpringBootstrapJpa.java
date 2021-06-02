@@ -8,20 +8,16 @@ import com.oceanngrsmith.ocheejeh.hublocker.models.State;
 import com.oceanngrsmith.ocheejeh.hublocker.services.CityService;
 import com.oceanngrsmith.ocheejeh.hublocker.services.LockerService;
 import com.oceanngrsmith.ocheejeh.hublocker.services.StateService;
-import com.zaxxer.hikari.HikariConfig;
-import com.zaxxer.hikari.HikariDataSource;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.DependsOn;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
 
-import javax.sql.DataSource;
+
 import java.util.Arrays;
 import java.util.List;
 
@@ -30,7 +26,7 @@ import java.util.List;
  * database data
  */
 @Configuration
-public class SpringBootstrapJpa {
+public class SpringBootstrapJpa implements ApplicationListener<ContextRefreshedEvent>  {
 
     private  StateService stateService;
     private  CityService cityService;
@@ -56,10 +52,10 @@ public class SpringBootstrapJpa {
         this.lockerService = lockerService;
     }
 
-    /*@Override
+    @Override
     public void onApplicationEvent(ContextRefreshedEvent contextRefreshedEvent) {
         this.loadData();
-    }*/
+    }
 
     public void loadData() {
         List<LockerDTO> locationLockers = lockerService.listAllLockers().getBody();
